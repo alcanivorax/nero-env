@@ -9,7 +9,7 @@ nero-env compares your active .env file with .env.example and reports:
 - unused variables
 
 Clear output. No configuration. Safe by default.
-
+<!-- 
 ## Installation
 
 ```bash
@@ -28,7 +28,7 @@ Check a specific project:
 nero-env --path ./apps/api
 ```
 
-<!-- Fail on issues (useful for CI):
+Fail on issues (useful for CI):
 ```bash
 nero-env --strict
 ```
@@ -36,7 +36,7 @@ nero-env --strict
 Use a specific env file:
 ```bash
 nero-env --env development
-``` -->
+
 
 ## What it checks
 
@@ -45,3 +45,4 @@ nero-env --env development
 - **Unused** → present in .env but not declared in .env.example
 
 Output clearly shows which file needs fixing.
+``` -->
