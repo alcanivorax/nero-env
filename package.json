@@ -1,6 +1,6 @@
 {
   "name": "nero-env",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Validate and compare .env files",
   "bin": {
     "nero-env": "dist/index.js"
