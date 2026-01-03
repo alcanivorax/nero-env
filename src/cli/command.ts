@@ -1,4 +1,4 @@
-import path from "node:path";
+import { join } from "node:path";
 
 import { parseOptions } from "./options";
 
@@ -11,18 +11,17 @@ import { printReport } from "../output/printer";
 
 export function run(): void {
   const options = parseOptions();
+  const targetPath = options.projectPath;
 
-  const targetPath = options.path;
-
-  const envFilePath = path.join(targetPath, ".env");
-  const exampleFilePath = path.join(targetPath, ".env.example");
+  const envFilePath = join(targetPath, ".env");
+  const exampleFilePath = join(targetPath, ".env.example");
 
   const actualEnv = readEnvFile(envFilePath);
   const exampleEnv = readEnvFile(exampleFilePath);
 
   const report = compareEnv(exampleEnv, actualEnv);
 
-  // extra validation layer
+  // Extra validation layer
   const emptyKeys = validateEnv(actualEnv);
   if (emptyKeys.length > 0) {
     report.issues.empty = emptyKeys;
@@ -30,11 +29,9 @@ export function run(): void {
   }
 
   const formattedReport = formatEnvReport(report);
-
   printReport(formattedReport);
 
-  // exit code handling
-  if (options.strict && formattedReport.hasIssues) {
+  if (formattedReport.hasIssues) {
     process.exit(1);
   }
 }
