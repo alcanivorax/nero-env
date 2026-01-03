@@ -28,16 +28,6 @@ Check a specific project:
 nero-env --path ./apps/api
 ```
 
-<!-- Fail on issues (useful for CI):
-```bash
-nero-env --strict
-```
-
-Use a specific env file:
-```bash
-nero-env --env development
-``` -->
-
 ## What it checks
 
 - **Missing** → defined in .env.example but not in .env
