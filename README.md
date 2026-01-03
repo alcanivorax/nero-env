@@ -12,7 +12,10 @@ Clear output. No configuration. Safe by default.
 
 ## Example
 
-![nero-env output](assets/nero-env-preview.png)
+<img 
+  src="https://raw.githubusercontent.com/alcanivorax/nero-env/main/assets/nero-env-preview.png"
+  width="700"
+/>
 
 ## Installation
 
