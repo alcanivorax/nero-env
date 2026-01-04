@@ -2,20 +2,46 @@
 
 A simple CLI tool to validate environment variables in a project.
 
-nero-env compares your active .env file with .env.example and reports:
+## Table of Contents
+- [Quick Start](#quick-start)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [What it Checks](#what-it-checks)
+- [Local Development](#local-development)
+- [Contributing](#contributing)
 
-- missing variables
-- empty values
-- unused variables
+## Quick Start
 
-Clear output. No configuration. Safe by default.
+### 1. Install
+```bash
+npm install -g nero-env
+```
 
-## Example
+### 2. Setup .env Files
+```bash
+# Create your .env file
+echo "DATABASE_URL=postgres://localhost" > .env
 
-<img 
-  src="https://raw.githubusercontent.com/alcanivorax/nero-env/main/assets/nero-env-preview.png"
-  width="700"
-/>
+# Create .env.example
+echo "DATABASE_URL=" > .env.example
+echo "API_KEY=" >> .env.example
+```
+
+### 3. Run
+```bash
+neo-env
+```
+
+## Features
+
+✅ **Zero Configuration** - No setup needed, just run it
+
+✅ **Fast Validation** - Instantly checks your environment variables
+
+✅ **Clear Reports** - Easy-to-read output showing what's missing
+
+✅ **Safe by Default** - Doesn't modify your files
 
 ## Installation
 
@@ -24,6 +50,8 @@ npm install -g nero-env
 ```
 
 ## Usage
+
+Validate environment variables in the current project:
 
 ```bash
 nero-env
@@ -35,78 +63,69 @@ Check a specific project:
 nero-env --path ./apps/api
 ```
 
-## What it checks
+## What it Checks
 
-- **Missing** → defined in .env.example but not in .env
-- **Empty** → defined but has no value
-- **Unused** → present in .env but not declared in .env.example
+nero-env compares your active `.env` file with `.env.example` and reports:
 
-Output clearly shows which file needs fixing.
+- **Missing** → Defined in `.env.example` but not in `.env`
+- **Empty** → Defined but has no value
+- **Unused** → Present in `.env` but not declared in `.env.example`
 
-## Local Development Setup
+Clear output clearly shows which file needs fixing.
+
+## Local Development
 
 ### Prerequisites
 
-- **pnpm**
+- **Node.js** (v14 or higher)
+- **pnpm** - Install from [pnpm.io/installation](https://pnpm.io/installation)
 
-  Install pnpm: [https://pnpm.io/installation](https://pnpm.io/installation)
+### Setup Steps
 
 1. **Fork the repo**
 
 2. **Clone your fork**
-
    ```bash
-   git clone https://github.com/<username>/nero-env.git
-   ```
-
-3. **Move to the project root directory**
-
-   ```bash
+   git clone https://github.com/YOUR_USERNAME/nero-env.git
    cd nero-env
    ```
 
-4. **Install dependencies**
-
+3. **Install dependencies**
    ```bash
    pnpm install
    ```
 
-5. **Build the project**
-
+4. **Build the project**
    ```bash
    pnpm build
    ```
 
-## Running the CLI locally (using npm link)
+### Testing Locally
 
-**To test nero-env as a global command during development:**
+Link the package for local testing:
 
-1. Link the package
+```bash
+# Create global link
+npm link
 
-   ```bash
-   npm link
-   ```
+# Test the command
+nero-env
 
-2. Run the CLI
+# After making changes
+pnpm build
 
-   ```bash
-   nero-env
-   ```
+# Cleanup when done
+npm unlink
+```
 
-3. After making changes
+## Example
 
-   ```bash
-   pnpm build
-   ```
+![nero-env preview](./assets/nero-env-preview.png)
 
-The linked command will automatically use the updated build.
+## Contributing
+
+Contributions are welcome! Please check the [CONTRIBUTING.md](./CONTRIBUTING.MD) file for guidelines.
 
 ---
 
-**Unlinking (cleanup)**
-
-When you’re done:
-
-```bash
-npm unlink
-```
+**Made with ❤️ for developers who care about their environment variables**
