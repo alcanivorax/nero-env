@@ -1,14 +1,50 @@
 # nero-env
 
-A simple CLI tool to validate environment variables in a project.
+A simple CLI tool to validate environment variables in your project.
 
-nero-env compares your active .env file with .env.example and reports:
+## Overview
 
-- missing variables
-- empty values
-- unused variables
+nero-env compares your active `.env` file with `.env.example` and reports discrepancies. It helps ensure your environment configuration is complete and accurate.
 
-Clear output. No configuration. Safe by default.
+**What it checks:**
+
+* **Missing variables** - defined in `.env.example` but not in `.env`
+* **Empty values** - defined in `.env` but has no value assigned
+* **Unused variables** - present in `.env` but not declared in `.env.example`
+
+Clear output. No configuration required. Safe by default.
+
+---
+
+## Installation
+
+Install globally using npm:
+
+```bash
+npm install -g nero-env
+```
+
+---
+
+## Usage
+
+### Basic Usage
+
+Run in your project directory:
+
+```bash
+nero-env
+```
+
+This will check for `.env` and `.env.example` files in the current directory.
+
+### Check a Specific Project
+
+Specify a custom path:
+
+```bash
+nero-env --path ./apps/api
+```
 
 ## Example
 
@@ -17,96 +53,113 @@ Clear output. No configuration. Safe by default.
   width="700"
 />
 
-## Installation
+---
 
-```bash
-npm install -g nero-env
-```
+## How It Works
 
-## Usage
+1. Reads `.env.example` to establish the expected environment variables
+2. Reads `.env` to check the actual environment configuration
+3. Compares both files and identifies:
+   - Variables missing from `.env`
+   - Variables with empty values in `.env`
+   - Variables in `.env` that are not documented in `.env.example`
+4. Displays a clear report with actionable information
 
-```bash
-nero-env
-```
-
-Check a specific project:
-
-```bash
-nero-env --path ./apps/api
-```
-
-## What it checks
-
-- **Missing** → defined in .env.example but not in .env
-- **Empty** → defined but has no value
-- **Unused** → present in .env but not declared in .env.example
-
-Output clearly shows which file needs fixing.
+---
 
 ## Local Development Setup
 
 ### Prerequisites
 
-- **pnpm**
+* Node.js (version 14 or higher recommended)
+* pnpm
 
-  Install pnpm: [https://pnpm.io/installation](https://pnpm.io/installation)
+**Install pnpm:**
 
-1. **Fork the repo**
+```bash
+npm install -g pnpm
+```
 
-2. **Clone your fork**
+Or visit: https://pnpm.io/installation
 
-   ```bash
-   git clone https://github.com/<username>/nero-env.git
-   ```
+### Setup Steps
 
-3. **Move to the project root directory**
+1. Fork the repository on GitHub
 
-   ```bash
-   cd nero-env
-   ```
+2. Clone your fork:
 
-4. **Install dependencies**
+```bash
+git clone https://github.com/<your-username>/nero-env.git
+```
 
-   ```bash
-   pnpm install
-   ```
+3. Navigate to the project directory:
 
-5. **Build the project**
+```bash
+cd nero-env
+```
 
-   ```bash
-   pnpm build
-   ```
+4. Install dependencies:
 
-## Running the CLI locally (using npm link)
+```bash
+pnpm install
+```
 
-**To test nero-env as a global command during development:**
+5. Build the project:
 
-1. Link the package
-
-   ```bash
-   npm link
-   ```
-
-2. Run the CLI
-
-   ```bash
-   nero-env
-   ```
-
-3. After making changes
-
-   ```bash
-   pnpm build
-   ```
-
-The linked command will automatically use the updated build.
+```bash
+pnpm build
+```
 
 ---
 
-**Unlinking (cleanup)**
+## Running the CLI Locally
 
-When you’re done:
+### Using npm link
+
+To test `nero-env` as a global command during development:
+
+1. Link the package globally:
+
+```bash
+npm link
+```
+
+2. Run the CLI from any directory:
+
+```bash
+nero-env
+```
+
+3. After making changes to the source code, rebuild:
+
+```bash
+pnpm build
+```
+
+The linked command will automatically use the updated build.
+
+### Unlinking (Cleanup)
+
+When you're done testing:
 
 ```bash
 npm unlink
 ```
+
+This removes the global symlink.
+
+---
+
+## License
+
+This project is licensed under the MIT License.
+
+---
+
+## Support
+
+If you encounter issues or have questions:
+
+* Open an issue on GitHub
+* Check existing issues for solutions
+* Provide clear reproduction steps when reporting bugs
