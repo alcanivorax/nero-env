@@ -6,6 +6,8 @@
   <img src="https://img.shields.io/github/license/alcanivorax/nero-env?color=22c55e" alt="license" />
 </p>
 
+<br />
+
 <p align="center">
   <img
     src="https://raw.githubusercontent.com/alcanivorax/nero-env/main/assets/nero-env-preview.png"
@@ -14,21 +16,12 @@
   />
 </p>
 
-A simple CLI tool to validate environment variables in your project.
+## What is nero-env?
 
-## Overview
+**nero-env** is a CLI tool for validating and comparing `.env` files against `.env.example`.
+It helps catch missing, empty, and unused environment variables early.
 
-nero-env compares your active `.env` file with `.env.example` and reports discrepancies. It helps ensure your environment configuration is complete and accurate.
-
-**What it checks:**
-
-- **Missing variables** - defined in `.env.example` but not in `.env`
-- **Empty values** - defined in `.env` but has no value assigned
-- **Unused variables** - present in `.env` but not declared in `.env.example`
-
-Clear output. No configuration required. Safe by default.
-
----
+<br />
 
 ## Installation
 
@@ -38,9 +31,7 @@ Install globally using npm:
 npm install -g nero-env
 ```
 
----
-
-## Usage
+<br/>
 
 ### Basic Usage
 
@@ -52,6 +43,8 @@ nero-env
 
 This will check for `.env` and `.env.example` files in the current directory.
 
+<br/>
+
 ### Check a Specific Project
 
 Specify a custom path:
@@ -60,10 +53,12 @@ Specify a custom path:
 nero-env --path ./apps/api
 ```
 
+<br />
+
 ## What it checks
 
-- **Missing** → defined in .env.example but not in .env
-- **Empty** → defined but has no value
-- **Unused** → present in .env but not declared in .env.example
+- **Missing variables** → defined in `.env.example` but not in `.env`
+- **Empty values** → defined in `.env` but has no value assigned
+- **Unused variables** → present in `.env` but not declared in `.env.example`
 
 Output clearly shows which file needs fixing.
