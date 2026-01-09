@@ -1,6 +1,6 @@
 {
   "name": "nero-env",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Validate and compare .env files to catch missing, empty, and unused variables.",
   "type": "module",
   "main": "dist/index.js",
