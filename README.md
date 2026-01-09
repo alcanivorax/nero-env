@@ -6,6 +6,14 @@
   <img src="https://img.shields.io/github/license/alcanivorax/nero-env?color=22c55e" alt="license" />
 </p>
 
+<p align="center">
+  <img
+    src="https://raw.githubusercontent.com/alcanivorax/nero-env/main/assets/nero-env-preview.png"
+    alt="nero-env preview"
+    width="700"
+  />
+</p>
+
 A simple CLI tool to validate environment variables in your project.
 
 ## Overview
