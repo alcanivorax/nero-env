@@ -1,13 +1,15 @@
-export type Severity = "error" | "warning";
+type Severity = "error" | "warning";
 
-export interface FormattedSection {
+interface FormattedSection {
   title: string;
   items: string[];
   severity: "error" | "warning";
   source: ".env" | ".env.example";
 }
 
-export interface FormattedReport {
+interface FormattedReport {
   sections: FormattedSection[];
   hasIssues: boolean;
 }
+
+export type { Severity, FormattedReport, FormattedSection };
