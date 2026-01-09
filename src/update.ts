@@ -1,5 +1,5 @@
 import updateNotifier from "update-notifier";
-import { CLI_NAME, CLI_VERSION } from "./meta";
+import { CLI_NAME, CLI_VERSION } from "./meta.js";
 
 export function notifyUpdate(): void {
   updateNotifier({

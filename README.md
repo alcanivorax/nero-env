@@ -59,5 +59,3 @@ nero-env --path ./apps/api
 - **Unused** → present in .env but not declared in .env.example
 
 Output clearly shows which file needs fixing.
-
-## Local Development Setup

@@ -1,5 +1,5 @@
-import { EnvReport } from "../core/types";
-import { FormattedReport, FormattedSection } from "./types";
+import { EnvReport } from "../core/types.js";
+import { FormattedReport, FormattedSection } from "./types.js";
 
 export function formatEnvReport(report: EnvReport): FormattedReport {
   const sections: FormattedSection[] = [];

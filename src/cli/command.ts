@@ -1,13 +1,13 @@
 import { join } from "node:path";
 
-import { parseOptions } from "./options";
+import { parseOptions } from "./options.js";
 
-import { readEnvFile } from "../core/readEnv";
-import { compareEnv } from "../core/compareEnv";
-import { validateEnv } from "../core/validateEnv";
+import { readEnvFile } from "../core/readEnv.js";
+import { compareEnv } from "../core/compareEnv.js";
+import { validateEnv } from "../core/validateEnv.js";
 
-import { formatEnvReport } from "../output/formatter";
-import { printReport } from "../output/printer";
+import { formatEnvReport } from "../output/formatter.js";
+import { printReport } from "../output/printer.js";
 
 export function run(): void {
   const options = parseOptions();

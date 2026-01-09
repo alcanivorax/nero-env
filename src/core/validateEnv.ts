@@ -1,4 +1,4 @@
-import { EnvMap } from "./types";
+import { EnvMap } from "./types.js";
 
 export function validateEnv(actualEnv: EnvMap): string[] {
   const emptyKeys: string[] = [];

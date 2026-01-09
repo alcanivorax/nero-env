@@ -1,4 +1,4 @@
-import { EnvMap, EnvIssues, EnvReport } from "./types";
+import { EnvMap, EnvIssues, EnvReport } from "./types.js";
 
 export function compareEnv(exampleEnv: EnvMap, actualEnv: EnvMap): EnvReport {
   const expectedKeys = new Set(Object.keys(exampleEnv));

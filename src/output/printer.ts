@@ -1,5 +1,5 @@
 import chalk from "chalk";
-import { FormattedReport, FormattedSection } from "./types";
+import { FormattedReport, FormattedSection } from "./types.js";
 
 const icons = {
   error: chalk.red("❌"),

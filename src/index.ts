@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
-import { run } from "./cli/command";
-import { notifyUpdate } from "./update";
+import { run } from "./cli/command.js";
+import { notifyUpdate } from "./update.js";
 
 try {
-  notifyUpdate(); // non-blocking, safe, cached
+  notifyUpdate();
   run();
 } catch (err) {
   console.error("Unexpected error:", err);

@@ -1,5 +1,5 @@
 import fs from "node:fs";
-import { EnvMap } from "./types";
+import { EnvMap } from "./types.js";
 
 export function readEnvFile(filePath: string): EnvMap {
   const envVariables: EnvMap = {};

@@ -1,17 +1,36 @@
 {
   "name": "nero-env",
   "version": "0.1.2",
-  "description": "Validate and compare .env files",
+  "description": "Validate and compare .env files to catch missing, empty, and unused variables.",
+  "type": "module",
+  "main": "dist/index.js",
   "bin": {
-    "nero-env": "dist/index.js"
+    "nero-env": ".dist/index.js"
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "scripts": {
+    "dev": "tsx src/index.ts",
     "build": "tsc",
-    "dev": "ts-node src/index.ts"
+    "start": "node dist/index.js"
   },
+  "keywords": [
+    "env",
+    "dotenv",
+    "environment-variables",
+    "env-validation",
+    "env-check",
+    "env-compare",
+    "config",
+    "cli",
+    "node-cli",
+    "developer-tools",
+    "devtools",
+    "nero"
+  ],
+  "author": "alcanivorax",
   "license": "MIT",
   "packageManager": "pnpm@10.17.1",
   "devDependencies": {
