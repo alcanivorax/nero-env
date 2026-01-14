@@ -1,21 +1,22 @@
 import chalk from "chalk";
 import { FormattedReport, FormattedSection } from "./types.js";
+import { theme } from "./theme.js";
 
 const icons = {
-  error: chalk.red("❌"),
-  warning: chalk.yellow("⚠️"),
-  success: chalk.green("✅"),
+  error: theme.severity.high("❌"),
+  warning: theme.severity.medium("⚠️"),
+  success: theme.severity.low("✅"),
 };
 
 export function printReport(report: FormattedReport): void {
   // Title
-  console.log(chalk.bold("Nero Env Check"));
-  console.log(chalk.dim("─────────────\n"));
+  console.log(theme.header("Nero Env Check"));
+  console.log(theme.muted("─────────────\n"));
 
   // Success case
   if (!report.hasIssues || report.sections.length === 0) {
     console.log(
-      `${icons.success} ${chalk.green("No environment issues found")}`
+      `${icons.success} ${theme.muted("No environment issues found")}`
     );
     printSummary(0, 0);
     return;
@@ -44,40 +45,42 @@ function printSection(section: FormattedSection): void {
 
   if (section.source === ".env") {
     console.log(
-      `${icon}  ${chalk.bold(section.title)} ${chalk.dim(
+      `${icon}  ${theme.title(section.title)} ${theme.muted(
         `(${section.source})`
       )}`
     );
   } else {
     console.log(
-      `${icon}  ${chalk.bold(section.title)} ${chalk.dim(
+      `${icon}  ${theme.title(section.title)} ${theme.muted(
         `(not declared in ${section.source})`
       )}`
     );
   }
 
   for (const item of section.items) {
-    console.log(`  ${chalk.dim("•")} ${chalk.cyan(item)}`);
+    console.log(`  ${theme.bullet} ${theme.muted(item)}`);
   }
 }
 
 function printSummary(errors: number, warnings: number): void {
-  console.log(chalk.dim("─────────────"));
+  console.log(theme.muted("─────────────"));
 
   if (errors === 0 && warnings === 0) {
-    console.log(chalk.dim("Summary: ") + chalk.green("No issues found"));
+    console.log(theme.title("Summary: ") + theme.muted("No issues found"));
     return;
   }
 
   const parts: string[] = [];
 
   if (errors > 0) {
-    parts.push(chalk.red(`${errors} error${errors > 1 ? "s" : ""}`));
+    parts.push(theme.severity.high(`${errors} error${errors > 1 ? "s" : ""}`));
   }
 
   if (warnings > 0) {
-    parts.push(chalk.yellow(`${warnings} warning${warnings > 1 ? "s" : ""}`));
+    parts.push(
+      theme.severity.medium(`${warnings} warning${warnings > 1 ? "s" : ""}`)
+    );
   }
 
-  console.log(chalk.dim("Summary: ") + parts.join(chalk.dim(", ")));
+  console.log(theme.title("Summary: ") + parts.join(theme.muted(", ")));
 }

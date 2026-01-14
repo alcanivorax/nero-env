@@ -31,7 +31,7 @@ export function run(): void {
   const formattedReport = formatEnvReport(report);
   printReport(formattedReport);
 
-  if (formattedReport.hasIssues) {
-    process.exit(1);
-  }
+  // if (formattedReport.hasIssues) {
+  //   process.exit(1);
+  // }
 }
