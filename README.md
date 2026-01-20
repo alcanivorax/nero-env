@@ -2,7 +2,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/npm/v/nero-env?color=6366f1" alt="npm version" />
-  <img src="https://img.shields.io/npm/dm/nero-env?color=0f172a" alt="npm downloads" />
+  <img src="https://img.shields.io/npm/dt/nero-env?color=0f172a" alt="npm downloads" />
   <img src="https://img.shields.io/github/license/alcanivorax/nero-env?color=22c55e" alt="license" />
 </p>
 
